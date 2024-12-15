@@ -7,10 +7,15 @@ import { useToast } from "@/components/ui/use-toast";
 export const ContactForm = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
-    address: "",
+    addressLine1: "",
+    addressLine2: "",
+    city: "",
+    state: "",
+    zipCode: "",
     message: "",
   });
 
@@ -22,10 +27,15 @@ export const ContactForm = () => {
       description: "We'll get back to you within 24 hours.",
     });
     setFormData({
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phone: "",
-      address: "",
+      addressLine1: "",
+      addressLine2: "",
+      city: "",
+      state: "",
+      zipCode: "",
       message: "",
     });
   };
@@ -35,47 +45,85 @@ export const ContactForm = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-2xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">
-              Get Your Cash Offer
-            </h2>
-            <p className="text-lg text-gray-600">
-              Fill out the form below and we'll get back to you within 24 hours
+            <h2 className="text-4xl font-bold text-primary mb-4">Contact Us</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Selling your house can be a stressful and consuming process in today's market. 
+              My objective is to help you, I can pay off loans, lien and taxes. I can also save 
+              you thousands of dollars in home repairs, closing costs, realtor fees and commissions. 
+              I've been buying houses for over twenty years, I know the deal. As a property buyer 
+              I can facilitate the process and provide options that a conventional sale can not. 
+              Contact me to discuss the different alternatives that are available to you before 
+              selling your house.
             </p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <Input
-                placeholder="Your Name"
+                placeholder="First Name"
                 className="h-12 text-lg"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                value={formData.firstName}
+                onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                 required
               />
               <Input
-                type="email"
-                placeholder="Email Address"
+                placeholder="Last Name"
                 className="h-12 text-lg"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
+                value={formData.lastName}
+                onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
               />
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <Input
+              type="email"
+              placeholder="Email Address"
+              className="h-12 text-lg"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+            />
+            <Input
+              type="tel"
+              placeholder="Phone Number"
+              className="h-12 text-lg"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            />
+            <div className="space-y-4">
               <Input
-                type="tel"
-                placeholder="Phone Number"
+                placeholder="Address Line 1"
                 className="h-12 text-lg"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                value={formData.addressLine1}
+                onChange={(e) => setFormData({ ...formData, addressLine1: e.target.value })}
                 required
               />
               <Input
-                placeholder="Property Address"
+                placeholder="Address Line 2"
                 className="h-12 text-lg"
-                value={formData.address}
-                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                required
+                value={formData.addressLine2}
+                onChange={(e) => setFormData({ ...formData, addressLine2: e.target.value })}
               />
+              <div className="grid md:grid-cols-3 gap-4">
+                <Input
+                  placeholder="City"
+                  className="h-12 text-lg"
+                  value={formData.city}
+                  onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                  required
+                />
+                <Input
+                  placeholder="State"
+                  className="h-12 text-lg"
+                  value={formData.state}
+                  onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                  required
+                />
+                <Input
+                  placeholder="ZIP Code"
+                  className="h-12 text-lg"
+                  value={formData.zipCode}
+                  onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
+                  required
+                />
+              </div>
             </div>
             <Textarea
               placeholder="Tell us about your property"
