@@ -17,23 +17,30 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section className="py-20 bg-surface" id="how-it-works">
+    <section className="py-24 bg-accent" id="how-it-works">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          How It Works
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+            How It Works
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            We've made selling your house as simple as possible
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="bg-white p-6 rounded-lg shadow-md animate-fade-up"
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-center mb-4">
-                <CheckCircle className="w-8 h-8 text-secondary mr-3" />
-                <h3 className="text-xl font-semibold">{step.title}</h3>
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
+                  <CheckCircle className="w-6 h-6 text-secondary" />
+                </div>
+                <h3 className="text-2xl font-semibold text-primary">{step.title}</h3>
               </div>
-              <p className="text-text-light">{step.description}</p>
+              <p className="text-gray-600 text-lg leading-relaxed">{step.description}</p>
             </div>
           ))}
         </div>

@@ -24,27 +24,34 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="py-20 bg-surface">
+    <section className="py-24 bg-gradient-to-b from-white to-accent">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          What Our Clients Say
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+            What Our Clients Say
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Don't just take our word for it
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="animate-fade-up"
+              className="animate-fade-up hover:shadow-lg transition-shadow duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <CardContent className="p-6">
-                <div className="flex mb-4">
+              <CardContent className="p-8">
+                <div className="flex mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-secondary fill-current" />
                   ))}
                 </div>
-                <p className="text-text-light mb-4">{testimonial.text}</p>
-                <div className="font-semibold">{testimonial.name}</div>
-                <div className="text-sm text-text-light">{testimonial.location}</div>
+                <p className="text-gray-700 text-lg mb-6 leading-relaxed">"{testimonial.text}"</p>
+                <div className="border-t pt-6">
+                  <div className="font-semibold text-primary text-lg">{testimonial.name}</div>
+                  <div className="text-gray-600">{testimonial.location}</div>
+                </div>
               </CardContent>
             </Card>
           ))}

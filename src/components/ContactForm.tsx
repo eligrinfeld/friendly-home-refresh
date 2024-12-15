@@ -31,48 +31,61 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="py-20 bg-white" id="contact">
+    <section className="py-24 bg-primary" id="contact">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            Get Your Cash Offer
-          </h2>
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-2xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">
+              Get Your Cash Offer
+            </h2>
+            <p className="text-lg text-gray-600">
+              Fill out the form below and we'll get back to you within 24 hours
+            </p>
+          </div>
           <form onSubmit={handleSubmit} className="space-y-6">
-            <Input
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              required
-            />
-            <Input
-              type="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
-            />
-            <Input
-              type="tel"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              required
-            />
-            <Input
-              placeholder="Property Address"
-              value={formData.address}
-              onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-              required
-            />
+            <div className="grid md:grid-cols-2 gap-6">
+              <Input
+                placeholder="Your Name"
+                className="h-12 text-lg"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+              />
+              <Input
+                type="email"
+                placeholder="Email Address"
+                className="h-12 text-lg"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+              />
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Input
+                type="tel"
+                placeholder="Phone Number"
+                className="h-12 text-lg"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                required
+              />
+              <Input
+                placeholder="Property Address"
+                className="h-12 text-lg"
+                value={formData.address}
+                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                required
+              />
+            </div>
             <Textarea
               placeholder="Tell us about your property"
+              className="text-lg min-h-[120px]"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             />
             <Button 
               type="submit"
-              className="w-full bg-secondary hover:bg-secondary-dark text-white"
-              size="lg"
+              className="w-full bg-secondary hover:bg-secondary-dark text-white h-14 text-lg rounded-lg"
             >
               Get My Cash Offer
             </Button>
