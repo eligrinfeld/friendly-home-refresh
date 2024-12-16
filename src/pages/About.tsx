@@ -1,12 +1,18 @@
 import { Navigation } from "@/components/Navigation";
+import { Helmet } from "react-helmet";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-primary mb-8">About Us</h1>
-        <div className="prose lg:prose-xl max-w-none space-y-6">
+    <>
+      <Helmet>
+        <title>About Barry Lewis - Good Guy House Buyer | Denver & Boulder Cash Home Buyer</title>
+        <meta name="description" content="Meet Barry Lewis, a trusted cash home buyer with over 20 years of experience in Denver and Boulder. Learn how we can help you sell your house fast and hassle-free." />
+      </Helmet>
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <main className="container mx-auto px-4 py-12">
+          <article className="prose lg:prose-xl max-w-none space-y-6">
+            <h1 className="text-4xl font-bold text-primary mb-8">About Us</h1>
           <div className="bg-white rounded-xl shadow-sm p-8">
             <h2 className="text-3xl font-bold text-primary mb-6">
               Want to sell your House or Income Property? I want to Buy It.
@@ -44,9 +50,10 @@ const About = () => {
               I pay referral fees! If you know someone who wants to sell their property, give us their name and, if we buy the house, we pay you!
             </p>
           </div>
-        </div>
+          </article>
+        </main>
       </div>
-    </div>
+    </>
   );
 };
 
